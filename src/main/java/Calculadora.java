@@ -10,6 +10,7 @@ public class Calculadora
         System.out.println("Suma: " + sumar.apply(num1, num2));
         System.out.println("Resta: " + restar.apply(num1, num2));
         System.out.println("Multiplicación: " + multir.apply(num1, num2));
+        System.out.println("Division " + div.apply(num1, num2));
 
     }
 
@@ -25,12 +26,12 @@ public class Calculadora
     };
 
 
-    //TODO terminar bien el algoritmo ya que no funciona correctamente
+
     public static BiFunction<Integer, Integer, Integer> div = (numerador, denominador) ->
     {
         return IntStream.range(0, denominador > numerador ? denominador+1: numerador+1)
                 .reduce((acumulador,numero)->
-                        multir.apply(numero,denominador) < numerador ? acumulador+1 : acumulador
+                        multir.apply(numero,denominador) <= numerador ? acumulador+1 : acumulador
 
                 ).getAsInt();
     };
